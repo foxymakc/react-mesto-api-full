@@ -1,0 +1,23 @@
+.popup__input_auth-email {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 30px;
+  background-color: black;
+  color: white;
+  border-bottom: 2px solid #ccc;
+  caret-color: #fff;
+  -webkit-text-fill-color: #fff;
+  -internal-autofill-color: #fff;
+}
+
+.popup__input_auth-email:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px black inset;
+}
+
+.popup__input_auth-email::placeholder {
+  color: #ccc;
+  -webkit-text-fill-color: #ccc;
+}
