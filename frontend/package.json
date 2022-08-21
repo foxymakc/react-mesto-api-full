@@ -2,6 +2,7 @@
   "name": "react-mesto-auth",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://domain15pr.chelovskiy.nomoredomains.sbs/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -17,7 +18,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "dhDeploy": "gh-pages -d build",
+    "deploy": "npm run build && scp -r ./build/* foxymakc@51.250.94.77:/home/foxymakc/mesto-frontend"
   },
   "eslintConfig": {
     "extends": [

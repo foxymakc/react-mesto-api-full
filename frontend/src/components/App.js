@@ -155,7 +155,6 @@ const App = () => {
       .register(password, email)
       .then((data) => {
         if (data._id || data.email) {
-        history.push("/signup");
         setMessage({
           imgRegistration: success,
           text: "Вы успешно зарегистрировались!",
@@ -221,7 +220,7 @@ const App = () => {
           </Route>
 
           <Route path="*">
-            {loggedIn ? <Redirect to="/" /> : <Redirect to="/signup" />}
+            {loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
           </Route>
         </Switch>
         <Footer />

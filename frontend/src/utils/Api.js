@@ -89,7 +89,6 @@ const api = new Api({
   url: "https://api.domain15pr.chelovskiy.nomoredomains.sbs",
   headers: {
     "Content-Type": "application/json",
-    credentials: 'include',
   },
 });
 
