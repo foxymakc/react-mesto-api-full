@@ -1,6 +1,14 @@
 const { celebrate, Joi } = require('celebrate');
+const validator = require('validator');
 
 const listConditions = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-z0-9]{1,10}\b([-a-z0-9-._~:/?#@!$&'()*+,;=]*)/;
+
+const customValidation = (value) => {
+  if (!validator.isURL(value)) {
+    throw new Error('Не правльный формат ссылки');
+  }
+  return value;
+};
 
 const loginValidation = celebrate({
   body: Joi.object().keys({
@@ -21,8 +29,8 @@ const createUserValidation = celebrate({
 
 const idValidation = celebrate({
   params: Joi.object().keys({
-    userId: Joi.string().alphanum().length(24),
-    cardId: Joi.string().alphanum().length(24),
+    userId: Joi.string().alphanum().custom(customValidation),
+    cardId: Joi.string().alphanum().custom(customValidation),
   }),
 });
 
