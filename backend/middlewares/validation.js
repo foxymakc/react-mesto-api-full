@@ -1,14 +1,18 @@
 const { celebrate, Joi } = require('celebrate');
-const validator = require('validator');
+const mongoose = require('mongoose');
 
 const listConditions = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,}\.[a-z0-9]{1,10}\b([-a-z0-9-._~:/?#@!$&'()*+,;=]*)/;
 
+// Вариант 1
+
 const customValidation = (value) => {
-  if (!validator.isURL(value)) {
-    throw new Error('Не правльный формат ссылки');
+  if (!mongoose.isValidObjectId(value)) {
+    throw new Error('Не правльный формат id');
   }
   return value;
 };
+
+//
 
 const loginValidation = celebrate({
   body: Joi.object().keys({
@@ -29,8 +33,12 @@ const createUserValidation = celebrate({
 
 const idValidation = celebrate({
   params: Joi.object().keys({
+    // Вариант 1
     userId: Joi.string().alphanum().custom(customValidation),
     cardId: Joi.string().alphanum().custom(customValidation),
+    // Вариант 2
+    // userId: Joi.string().alphanum().length(24).hex(),
+    // cardId: Joi.string().alphanum().length(24).hex(),
   }),
 });
 
