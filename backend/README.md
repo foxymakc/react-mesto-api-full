@@ -1,6 +1,4 @@
-# Проект Mesto фронтенд + бэкенд
-
-https://github.com/foxymakc/express-mesto-gha
+Бэкенд сервер на Express.js для проекта [react-mesto-auth](https://github.com/foxymakc/react-mesto-auth)
 
 ## Директории
 
